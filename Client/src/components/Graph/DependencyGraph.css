@@ -1,0 +1,235 @@
+/* ============================================
+   DEPENDENCY GRAPH COMPONENT STYLES
+   ============================================ */
+
+.dependency-graph {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dependency-graph-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  flex-shrink: 0;
+}
+
+.dependency-graph-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.dependency-graph-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.dependency-graph-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-tertiary);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dependency-graph-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+.dependency-graph-filter {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
+}
+
+.dependency-graph-filter-btn {
+  padding: 4px 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dependency-graph-filter-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.dependency-graph-filter-btn.active {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.dependency-graph-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+/* ============================================
+   REACT FLOW CUSTOM STYLES
+   ============================================ */
+
+.react-flow {
+  background: var(--bg-primary);
+}
+
+.react-flow__background {
+  background-color: var(--bg-primary);
+}
+
+.react-flow__edge {
+  stroke: var(--accent-primary);
+}
+
+/* Custom Node Styles */
+.node {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  min-width: 80px;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.node.selected {
+  background: rgba(88, 166, 255, 0.2);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+}
+
+.node:hover {
+  background: rgba(88, 166, 255, 0.15);
+  border-color: var(--accent-primary);
+}
+
+/* Node Types */
+.node.file-node {
+  background: rgba(160, 174, 192, 0.1);
+  border-color: rgba(160, 174, 192, 0.2);
+}
+
+.node.folder-node {
+  background: rgba(88, 166, 255, 0.1);
+  border-color: rgba(88, 166, 255, 0.2);
+}
+
+.node.component-node {
+  background: rgba(210, 168, 255, 0.1);
+  border-color: rgba(210, 168, 255, 0.2);
+}
+
+.node.service-node {
+  background: rgba(63, 185, 80, 0.1);
+  border-color: rgba(63, 185, 80, 0.2);
+}
+
+/* Edge Styles */
+.react-flow__edge-path {
+  stroke: var(--border-primary);
+  stroke-width: 2;
+}
+
+.react-flow__edge.animated path {
+  stroke: var(--accent-primary);
+  stroke-dasharray: 5;
+  animation: dashflow 0.5s linear infinite;
+}
+
+@keyframes dashflow {
+  from {
+    stroke-dashoffset: 5;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Controls */
+.react-flow__controls {
+  left: var(--spacing-lg);
+  bottom: var(--spacing-lg);
+}
+
+.react-flow__controls-button {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+}
+
+.react-flow__controls-button:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-primary);
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+
+.dependency-graph-loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+}
+
+.dependency-graph-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--text-tertiary);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-2xl);
+}
+
+.dependency-graph-empty-icon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .dependency-graph-filter {
+    display: none;
+  }
+
+  .node {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}
